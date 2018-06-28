@@ -1,5 +1,11 @@
 language: rust
 rust:
   - nightly
+before_install:
+  - git clone https://github.com/rust-lang/rust/ rustrepo
+  - cd rustrepo
+  - ./x.py build
+  - ls build/
+  - cd ..
 script:
   - cargo build --verbose --all
