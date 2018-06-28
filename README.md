@@ -1,4 +1,4 @@
-# Mononoke
+# Mononoke [![Build Status](https://travis-ci.org/Pulkit07/mononoke.svg?branch=travis-CI)](https://travis-ci.org/Pulkit07/mononoke)
 
 Mononoke is a next-generation server for the [Mercurial source control
 system](https://www.mercurial-scm.org/), meant to scale up to accepting
