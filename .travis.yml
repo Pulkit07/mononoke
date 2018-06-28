@@ -4,7 +4,7 @@ rust:
 before_install:
   - git clone https://github.com/rust-lang/rust/ rustrepo
   - cd rustrepo
-  - ./x.py build
+  - ./x.py build -j 16
   - ls build/
   - cd ..
 script:
