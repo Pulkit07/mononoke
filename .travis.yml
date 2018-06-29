@@ -1,7 +1,8 @@
-language: shell
+language: rust
+rust:
+  - nightly
 
 matrix:
-
   fast_finish: true
 
 before_install:
@@ -10,9 +11,6 @@ before_install:
   - tar -xzf rustdownload.tar.gz
   - ls rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
   - RDEV=$HOME/Pulkit07/rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
-  
-install:
-  - curl https://sh.rustup.rs -sSf | sh
 
 before_script:
   - echo "Building cargo from "$TRAVIS_COMMIT " "$TRAVIS_COMMIT_MESSAGE
@@ -20,4 +18,7 @@ before_script:
 
 script:
   - cd mononoke
+  - echo "Testing with nightly version"
   - cargo build --all
+  - RUSTC=$RDEV cargo build --all
+  - echo "Testing with version "$($RDEV --version)
