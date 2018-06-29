@@ -11,7 +11,7 @@ before_install:
   - ls rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
   - RDEV = $HOME/Pulkit07/rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
   
-install
+install:
   - curl https://sh.rustup.rs -sSf | sh
 
 before_script:
