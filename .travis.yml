@@ -1,11 +1,21 @@
-language: rust
-rust:
-  - nightly
+language: shell
+
+matrix:
+
+  fast_finish: true
+
 before_install:
-  - git clone https://github.com/rust-lang/rust/ rustrepo
-  - cd rustrepo
-  - ./x.py build -j 16
-  - ls build/
-  - cd ..
+  - wget https://www.dropbox.com/s/axupvg88yzdmsu5/rustdev.tar-gz?dl=1 -O rustdownload.tar.gz
+  - tar -xvzf rustdownload.tar.gz
+  - ls rustdownload/build/
+
+install:
+  - git clone https://github.com/Pulkit07/mononoke mono
+  - cd mono
+  - git checkout $TRAVIS_COMMIT
+
+before_script:
+  - echo "Building cargo from "$TRAVIS_COMMIT " "$TRAVIS_COMMIT_MESSAGE
+
 script:
-  - cargo build --verbose --all
+  - cargo build --all
