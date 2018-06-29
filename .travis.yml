@@ -8,11 +8,16 @@ before_install:
   - cd ..
   - wget https://www.dropbox.com/s/axupvg88yzdmsu5/rustdev.tar-gz?dl=1 -O rustdownload.tar.gz
   - tar -xzf rustdownload.tar.gz
-  - ls
+  - ls rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
+  - RDEV = $HOME/Pulkit07/rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
+  
+install
+  - curl https://sh.rustup.rs -sSf | sh
 
 before_script:
   - echo "Building cargo from "$TRAVIS_COMMIT " "$TRAVIS_COMMIT_MESSAGE
+  - $RDEV --version
 
 script:
-  - cd Pulkit07/mononoke
+  - cd mononoke
   - cargo build --all
