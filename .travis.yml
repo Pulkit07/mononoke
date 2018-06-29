@@ -1,6 +1,6 @@
 language: rust
 rust:
-  - nightly
+  - stable
 
 matrix:
   fast_finish: true
@@ -19,7 +19,7 @@ before_script:
 
 script:
   - cd mononoke
-  - echo "Testing with nightly version"
-  - cargo build --all
+  #- echo "Testing with nightly version"
+  #- cargo build --all
   - RUSTC=$RDEV cargo build --all
   - echo "Testing with version "$($RDEV --version)
