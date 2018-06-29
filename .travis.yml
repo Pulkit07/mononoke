@@ -9,7 +9,7 @@ before_install:
   - wget https://www.dropbox.com/s/axupvg88yzdmsu5/rustdev.tar-gz?dl=1 -O rustdownload.tar.gz
   - tar -xzf rustdownload.tar.gz
   - ls rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
-  - RDEV = $HOME/Pulkit07/rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
+  - RDEV=$HOME/Pulkit07/rustdev/build/x86_64-unknown-linux-gnu/stage2/bin/rustc
   
 install:
   - curl https://sh.rustup.rs -sSf | sh
